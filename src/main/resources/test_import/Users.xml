@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns:Users xmlns:ns="http://dataObjects.imports.generated/">
+    <ns:User>
+        <username>username1</username>
+        <password>password1</password>
+        <email>email1@gmail.com</email>
+    </ns:User>
+	<ns:User>
+        <username>username2</username>
+        <password>password2</password>
+        <email>email2@gmail.com</email>
+    </ns:User>
+	<ns:User>
+        <username>username3</username>
+        <password>password3</password>
+        <email>email3@gmail.com</email>
+    </ns:User>
+</ns:Users>
