@@ -12,22 +12,22 @@ public class UserService implements IUserService {
 
 	@Override
 	public UserDbi findById(Integer id) {
-		return null;
+		return userRepository.findById(id).orElse(null);
 	}
 
 	@Override
 	public List<UserDbi> findByUsername(String username) {
-		return null;
+		return userRepository.findByUsername(username);
 	}
 
 	@Override
 	public void save(UserDbi userDbi) {
-		
+		userRepository.save(userDbi);
 	}
 
 	@Override
 	public void updateByUsername(UserDbi userDbi) {
-		
+		userRepository.updateByUsername(userDbi.getUsername(), userDbi.getPassword(), userDbi.getEmail());
 	}
 
 	// -------------------------------------WIRING-------------------------------------

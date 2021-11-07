@@ -22,7 +22,7 @@ public class ImportRouter implements IImportRouter {
 				LOGGER.info("Data object redirect to: " + userImportProcessor.getClass().getSimpleName());
 				userImportProcessor.execute((Users) object);
 			} else {
-				LOGGER.warn("Warn!");
+				LOGGER.error("Import processor is not available for this data type: " + object.getClass().getName());
 			}
 		}
 	}

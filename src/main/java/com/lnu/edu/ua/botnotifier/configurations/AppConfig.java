@@ -41,6 +41,7 @@ public class AppConfig {
 		return importRouter;
 	}
 
+	@Bean
 	public ImportProcessor importProcessor() {
 		ImportProcessor importProcessor = new ImportProcessor();
 		importProcessor.setImportRouter(importRouter());

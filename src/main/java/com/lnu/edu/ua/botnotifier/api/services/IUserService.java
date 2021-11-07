@@ -11,7 +11,7 @@ public interface IUserService {
 	List<UserDbi> findByUsername(String username);
 
 	void save(UserDbi userDbi);
-	
+
 	void updateByUsername(UserDbi userDbi);
 
 }
