@@ -19,7 +19,7 @@ public class UserImportWriter implements IUserImportWriter {
 		try {
 			List<UserDbi> users = userService.findByUsername(userDbi.getUsername());
 			if (users.size() == 0) {
-				userService.save(userDbi);
+				userDbi = userService.save(userDbi);
 				LOGGER.info("[I] " + userDbi.toString());
 			} else {
 				userService.updateByUsername(userDbi);

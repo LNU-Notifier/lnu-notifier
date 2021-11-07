@@ -19,7 +19,7 @@ public class ImportTracker implements IImportTracker {
 
 	private IImportProcessor importProcessor;
 	private File importDirectory;
-	
+
 	public ImportTracker(IImportProcessor importProcessor, File importDirectory) {
 		this.importProcessor = importProcessor;
 		this.importDirectory = importDirectory;
@@ -32,6 +32,7 @@ public class ImportTracker implements IImportTracker {
 			LOGGER.info("Detected file to import: " + file.getName());
 			importProcessor.execute(file);
 			file.delete();
+			LOGGER.info("Completed import of file: " + file.getName());
 		}
 	}
 

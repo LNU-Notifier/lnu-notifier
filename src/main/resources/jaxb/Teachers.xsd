@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://dataObjects.imports.generated/"
+	xmlns:tns="http://dataObjects.imports.generated/">
+
+	<xs:element name="Teachers">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="tns:Teacher" minOccurs="0"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="Teacher">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="lastName" type="xs:string" />
+				<xs:element name="firstName" type="xs:string" />
+				<xs:element name="middleName" type="xs:string" />
+				<xs:element name="academicStatus" type="xs:string" />
+				<xs:element name="department" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

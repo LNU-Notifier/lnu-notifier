@@ -21,13 +21,14 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public void save(UserDbi userDbi) {
-		userRepository.save(userDbi);
+	public UserDbi save(UserDbi userDbi) {
+		return userRepository.save(userDbi);
 	}
 
 	@Override
 	public void updateByUsername(UserDbi userDbi) {
-		userRepository.updateByUsername(userDbi.getUsername(), userDbi.getPassword(), userDbi.getEmail());
+		userRepository.updateByUsername(userDbi.getUsername(), userDbi.getPassword(), userDbi.getEmail(),
+				userDbi.getUpdatingTime());
 	}
 
 	// -------------------------------------WIRING-------------------------------------

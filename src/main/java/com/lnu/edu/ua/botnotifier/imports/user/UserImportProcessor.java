@@ -23,7 +23,7 @@ public class UserImportProcessor implements IUserImportProcessor {
 	public void execute(Users users) {
 		for (User user : users.getUser()) {
 			UserDbi userDbi = UserMapper.mapToDbi(user);
-			userDbi.setRegistrationTime(Timestamp.from(Instant.now()));
+			userDbi.setUpdatingTime(Timestamp.from(Instant.now()));
 			userImportWriter.write(userDbi);
 		}
 	}

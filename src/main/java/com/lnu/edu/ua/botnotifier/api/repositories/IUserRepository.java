@@ -1,5 +1,6 @@
 package com.lnu.edu.ua.botnotifier.api.repositories;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +17,7 @@ public interface IUserRepository extends JpaRepository<UserDbi, Integer> {
 	List<UserDbi> findByUsername(String username);
 
 	@Modifying
-	@Query(value = "UPDATE UserDbi SET password = ?2, email = ?3 WHERE username = ?1")
-	void updateByUsername(String username, String password, String email);
+	@Query(value = "UPDATE UserDbi SET password = ?2, email = ?3, updatingTime = ?4 WHERE username = ?1")
+	void updateByUsername(String username, String password, String email, Timestamp updatingTime);
 
 }

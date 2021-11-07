@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Teachers xmlns:ns2="http://dataObjects.imports.generated/">
+    <ns2:Teacher>
+        <lastName>Шувар</lastName>
+        <firstName>Роман</firstName>
+        <middleName>Ярославович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Балицький</lastName>
+        <firstName>Олексій</firstName>
+        <middleName>Олександрович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Бугрій</lastName>
+        <firstName>Олег</firstName>
+        <middleName>Миколайович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Коман</lastName>
+        <firstName>Богдан</firstName>
+        <middleName>Петрович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Огірко</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Васильович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Юзевич</lastName>
+        <firstName>Володимир</firstName>
+        <middleName>Миколайович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Демків</lastName>
+        <firstName>Лідія</firstName>
+        <middleName>Степанівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Ляшкевич</lastName>
+        <firstName>Василь</firstName>
+        <middleName>Яремович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Ненчук</lastName>
+        <firstName>Тарас</firstName>
+        <middleName>Миколайович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Стахіра</lastName>
+        <firstName>Роман</firstName>
+        <middleName>Йосипович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Фіцич</lastName>
+        <firstName>Олена</firstName>
+        <middleName>Іванівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Ковтко</lastName>
+        <firstName>Роксолана</firstName>
+        <middleName>Тарасівна</middleName>
+        <academicStatus>старший</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Каськун</lastName>
+        <firstName>Олег</firstName>
+        <middleName>Данилович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кулик</lastName>
+        <firstName>Петро</firstName>
+        <middleName>Русланович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Мокій</lastName>
+        <firstName>Олександра</firstName>
+        <middleName>Анатоліївна</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Парубочий</lastName>
+        <firstName>Віталій</firstName>
+        <middleName>Олегович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Продивус</lastName>
+        <firstName>Андрій</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Ткаченко</lastName>
+        <firstName>Олександр</firstName>
+        <middleName>Миколайович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кушнір</lastName>
+        <firstName>Василь</firstName>
+        <middleName>Володимирович</middleName>
+        <academicStatus>аспірант</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Мисюк</lastName>
+        <firstName>Роман</firstName>
+        <middleName>Володимирович</middleName>
+        <academicStatus>аспірант</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Рибак</lastName>
+        <firstName>Андріян</firstName>
+        <middleName>Васильович</middleName>
+        <academicStatus>аспірант</academicStatus>
+        <department>системного проектування</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кушнір</lastName>
+        <firstName>Олег</firstName>
+        <middleName>Степанович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Крупич</lastName>
+        <firstName>Олег</firstName>
+        <middleName>Миколайович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Половинко</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Іванович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Свелеба</lastName>
+        <firstName>Сергій</firstName>
+        <middleName>Андрійович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Грабовський</lastName>
+        <firstName>Володимир</firstName>
+        <middleName>Андрійович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Катеринчук</lastName>
+        <firstName>Іван</firstName>
+        <middleName>Миколайович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Корчак</lastName>
+        <firstName>Юрій</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Куньо</lastName>
+        <firstName>Іван</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Паночко</lastName>
+        <firstName>Галина</firstName>
+        <middleName>Іванівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Фургала</lastName>
+        <firstName>Юрій</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Горон</lastName>
+        <firstName>Богдан</firstName>
+        <middleName>Ігорович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Дверій</lastName>
+        <firstName>Остап</firstName>
+        <middleName>Романович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Дуфанець</lastName>
+        <firstName>Марта</firstName>
+        <middleName>Василівна</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Мостова</lastName>
+        <firstName>Мар'яна</firstName>
+        <middleName>Романівна</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Панасюк</lastName>
+        <firstName>Юрій</firstName>
+        <middleName>Володимирович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Іваніцький</lastName>
+        <firstName>Любомир</firstName>
+        <middleName>Богданович</middleName>
+        <academicStatus>аспірант</academicStatus>
+        <department>оптоелектроніки та інформаційних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Оленич</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Богданович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Монастирський</lastName>
+        <firstName>Любомир</firstName>
+        <middleName>Степанович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Бойко</lastName>
+        <firstName>Ярослав</firstName>
+        <middleName>Васильович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Соколовський</lastName>
+        <firstName>Богдан</firstName>
+        <middleName>Степанович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Флюнт</lastName>
+        <firstName>Орест</firstName>
+        <middleName>Євгенович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Сінькевич</lastName>
+        <firstName>Олег</firstName>
+        <middleName>Олександрович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Футей</lastName>
+        <firstName>Олександр</firstName>
+        <middleName>Володимирович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Гура</lastName>
+        <firstName>Володимир</firstName>
+        <middleName>Тарасович</middleName>
+        <academicStatus>аспірант</academicStatus>
+        <department>радіоелектронних і комп’ютерних систем</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Болеста</lastName>
+        <firstName>Іван</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Карбовник</lastName>
+        <firstName>Іван</firstName>
+        <middleName>Дмитрович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Назаркевич</lastName>
+        <firstName>Марія</firstName>
+        <middleName>Андріївна</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Рендзіняк</lastName>
+        <firstName>Сергій</firstName>
+        <middleName>Йосипович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Благітко</lastName>
+        <firstName>Богдан</firstName>
+        <middleName>Ярославович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Вельгош</lastName>
+        <firstName>Сергій</firstName>
+        <middleName>Романович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Злобін</lastName>
+        <firstName>Григорій</firstName>
+        <middleName>Григорович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Катерняк</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Богданович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кушнір</lastName>
+        <firstName>Олексій</firstName>
+        <middleName>Олександрович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Любунь</lastName>
+        <firstName>Зіновій</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Рабик</lastName>
+        <firstName>Василь</firstName>
+        <middleName>Григорович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Сас</lastName>
+        <firstName>Наталія</firstName>
+        <middleName>Богданівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Середницька</lastName>
+        <firstName>Христина</firstName>
+        <middleName>Ігорівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Хвищун</lastName>
+        <firstName>Іван</firstName>
+        <middleName>Олександрович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Бавдис</lastName>
+        <firstName>Михайло</firstName>
+        <middleName>Ігорович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Дзіковський</lastName>
+        <firstName>Віктор</firstName>
+        <middleName>Євгенович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кучеренко</lastName>
+        <firstName>Олексій</firstName>
+        <middleName>Ігорович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Риковський</lastName>
+        <firstName>Петро</firstName>
+        <middleName>Антонович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Шевчук</lastName>
+        <firstName>Валерій</firstName>
+        <middleName>Дмитрович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Шмигельський</lastName>
+        <firstName>Ярослав</firstName>
+        <middleName>Антонович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>радіофізики та комп’ютерних технологій</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Павлик</lastName>
+        <firstName>Богдан</firstName>
+        <middleName>Васильович</middleName>
+        <academicStatus>завідувач</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Галій</lastName>
+        <firstName>Павло</firstName>
+        <middleName>Васильович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Лучечко</lastName>
+        <firstName>Андрій</firstName>
+        <middleName>Петрович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Костик</lastName>
+        <firstName>Людмила</firstName>
+        <middleName>Василівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Лис</lastName>
+        <firstName>Роман</firstName>
+        <middleName>Мирославович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Матвіїшин</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Слободзян</lastName>
+        <firstName>Дмитро</firstName>
+        <middleName>Петрович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Каюн</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Валерійович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кушлик</lastName>
+        <firstName>Маркіян</firstName>
+        <middleName>Олегович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Шпотюк</lastName>
+        <firstName>Ярослав</firstName>
+        <middleName>Олегович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>сенсорної та напівпровідникової електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Бордун</lastName>
+        <firstName>Олег</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>завідувач</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Демків</lastName>
+        <firstName>Тарас</firstName>
+        <middleName>Михайлович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Стасюк</lastName>
+        <firstName>Зиновій</firstName>
+        <middleName>Васильович</middleName>
+        <academicStatus>професор</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Бігун</lastName>
+        <firstName>Роман</firstName>
+        <middleName>Іванович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Вороняк</lastName>
+        <firstName>Мирослав</firstName>
+        <middleName>Іванович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кухарський</lastName>
+        <firstName>Ігор</firstName>
+        <middleName>Йосифович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Пенюх</lastName>
+        <firstName>Богдан</firstName>
+        <middleName>Романович</middleName>
+        <academicStatus>доцент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Бучковська</lastName>
+        <firstName>Марія</firstName>
+        <middleName>Дмитрівна</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Медвідь</lastName>
+        <firstName>Іванна</firstName>
+        <middleName>Іванівна</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Хомишин</lastName>
+        <firstName>Іван</firstName>
+        <middleName>Юрійович</middleName>
+        <academicStatus>асистент</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Коплак</lastName>
+        <firstName>Ольга</firstName>
+        <middleName>Михайлівна</middleName>
+        <academicStatus>інженер 1 категорії</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Кофлюк</lastName>
+        <firstName>Ірина</firstName>
+        <middleName>Миколаївна</middleName>
+        <academicStatus>аспірант</academicStatus>
+        <department>фізичної та біомедичної електроніки</department>
+    </ns2:Teacher>
+</ns2:Teachers>
