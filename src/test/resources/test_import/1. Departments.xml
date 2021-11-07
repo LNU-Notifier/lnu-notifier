@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:Departments xmlns:ns2="http://dataObjects.imports.generated/">
+    <ns2:Department>
+        <name>системного проектування</name>
+    </ns2:Department>
+    <ns2:Department>
+        <name>оптоелектроніки та інформаційних технологій</name>
+    </ns2:Department>
+    <ns2:Department>
+        <name>радіоелектронних і комп’ютерних систем</name>
+    </ns2:Department>
+    <ns2:Department>
+        <name>радіофізики та комп’ютерних технологій</name>
+    </ns2:Department>
+    <ns2:Department>
+        <name>сенсорної та напівпровідникової електроніки</name>
+    </ns2:Department>
+    <ns2:Department>
+        <name>фізичної та біомедичної електроніки</name>
+    </ns2:Department>
+</ns2:Departments>

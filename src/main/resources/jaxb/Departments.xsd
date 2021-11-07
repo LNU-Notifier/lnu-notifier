@@ -4,23 +4,19 @@
 	targetNamespace="http://dataObjects.imports.generated/"
 	xmlns:tns="http://dataObjects.imports.generated/">
 
-	<xs:element name="Teachers">
+	<xs:element name="Departments">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="tns:Teacher" minOccurs="0"
+				<xs:element ref="tns:Department" minOccurs="0"
 					maxOccurs="unbounded" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 
-	<xs:element name="Teacher">
+	<xs:element name="Department">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="lastName" type="xs:string" />
-				<xs:element name="firstName" type="xs:string" />
-				<xs:element name="middleName" type="xs:string" />
-				<xs:element name="academicStatus" type="xs:string" />
-				<xs:element name="departmentName" type="xs:string" />
+				<xs:element name="name" type="xs:string" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>

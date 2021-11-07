@@ -11,18 +11,19 @@ import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportWriter;
 import com.lnu.edu.ua.botnotifier.api.services.ITeacherService;
 
 public class TeacherImportWriter implements ITeacherImportWriter {
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(TeacherImportWriter.class);
 
 	@Override
 	public void write(TeacherDbi teacherDbi) {
 		try {
-			List<TeacherDbi> teachers = teacherService.findByPIB(teacherDbi.getLastName(), teacherDbi.getFirstName(),
-					teacherDbi.getMiddleName());
-			if (teachers.size() == 0) {
+			List<TeacherDbi> teacherDbiList = teacherService.findAllByPIB(teacherDbi.getLastName(),
+					teacherDbi.getFirstName(), teacherDbi.getMiddleName());
+			if (teacherDbiList.size() == 0) {
 				teacherDbi = teacherService.save(teacherDbi);
 				LOGGER.info("[I] " + teacherDbi.toString());
 			} else {
-				teacherService.updateByPIB(teacherDbi);
+				teacherService.updateAllByPIB(teacherDbi);
 				LOGGER.info("[U] " + teacherDbi.toString());
 			}
 		} catch (Exception e) {

@@ -2,11 +2,14 @@ package com.lnu.edu.ua.botnotifier.api.entities;
 
 import java.sql.Timestamp;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,8 +27,9 @@ public class TeacherDbi {
 	private String middleName;
 	@Column(nullable = false)
 	private String academicStatus;
-	@Column(nullable = false)
-	private String department;
+	@OneToOne(cascade = CascadeType.REMOVE)
+	@JoinColumn(name = "department_id", referencedColumnName = "id", nullable = false)
+	private DepartmentDbi department;
 	@Column(nullable = false)
 	private Timestamp updatingTime;
 
@@ -77,11 +81,11 @@ public class TeacherDbi {
 		this.updatingTime = updatingTime;
 	}
 
-	public String getDepartment() {
+	public DepartmentDbi getDepartment() {
 		return department;
 	}
 
-	public void setDepartment(String department) {
+	public void setDepartment(DepartmentDbi department) {
 		this.department = department;
 	}
 

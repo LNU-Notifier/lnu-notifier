@@ -12,6 +12,6 @@ public interface IUserService {
 
 	UserDbi save(UserDbi userDbi);
 
-	void updateByUsername(UserDbi userDbi);
+	void updateAllByUsername(UserDbi userDbi);
 
 }

@@ -17,12 +17,12 @@ public class UserImportWriter implements IUserImportWriter {
 	@Override
 	public void write(UserDbi userDbi) {
 		try {
-			List<UserDbi> users = userService.findByUsername(userDbi.getUsername());
-			if (users.size() == 0) {
+			List<UserDbi> userDbiList = userService.findByUsername(userDbi.getUsername());
+			if (userDbiList.size() == 0) {
 				userDbi = userService.save(userDbi);
 				LOGGER.info("[I] " + userDbi.toString());
 			} else {
-				userService.updateByUsername(userDbi);
+				userService.updateAllByUsername(userDbi);
 				LOGGER.info("[U] " + userDbi.toString());
 			}
 		} catch (Exception e) {

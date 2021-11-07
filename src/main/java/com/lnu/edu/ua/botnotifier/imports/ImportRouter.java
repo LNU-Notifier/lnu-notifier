@@ -5,9 +5,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 
 import com.lnu.edu.ua.botnotifier.api.imports.IImportRouter;
+import com.lnu.edu.ua.botnotifier.api.imports.department.IDepartmentImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.user.IUserImportProcessor;
 
+import generated.imports.dataobjects.Departments;
 import generated.imports.dataobjects.Teachers;
 import generated.imports.dataobjects.Users;
 
@@ -15,7 +17,7 @@ public class ImportRouter implements IImportRouter {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ImportRouter.class);
 
-	public static Class[] availableСlasses = { Users.class, Teachers.class };
+	public static Class[] availableСlasses = { Users.class, Teachers.class, Departments.class };
 
 	@Override
 	public void redirect(Object object) {
@@ -23,8 +25,10 @@ public class ImportRouter implements IImportRouter {
 			if (object instanceof Users) {
 				LOGGER.info("Data object redirect to: " + userImportProcessor.getClass().getSimpleName());
 				userImportProcessor.execute((Users) object);
-			}
-			if (object instanceof Teachers) {
+			} else if (object instanceof Departments) {
+				LOGGER.info("Data object redirect to: " + departmentImportProcessor.getClass().getSimpleName());
+				departmentImportProcessor.execute((Departments) object);
+			} else if (object instanceof Teachers) {
 				LOGGER.info("Data object redirect to: " + teacherImportProcessor.getClass().getSimpleName());
 				teacherImportProcessor.execute((Teachers) object);
 			} else {
@@ -47,6 +51,13 @@ public class ImportRouter implements IImportRouter {
 	@Required
 	public void setTeacherImportProcessor(ITeacherImportProcessor teacherImportProcessor) {
 		this.teacherImportProcessor = teacherImportProcessor;
+	}
+
+	private IDepartmentImportProcessor departmentImportProcessor;
+
+	@Required
+	public void setDepartmentImportProcessor(IDepartmentImportProcessor departmentImportProcessor) {
+		this.departmentImportProcessor = departmentImportProcessor;
 	}
 
 }

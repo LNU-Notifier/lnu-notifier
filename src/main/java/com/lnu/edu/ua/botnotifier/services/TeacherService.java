@@ -16,8 +16,8 @@ public class TeacherService implements ITeacherService {
 	}
 
 	@Override
-	public List<TeacherDbi> findByPIB(String lastName, String firstName, String middleName) {
-		return teacherRepository.findByPIB(lastName, firstName, middleName);
+	public List<TeacherDbi> findAllByPIB(String lastName, String firstName, String middleName) {
+		return teacherRepository.findAllByPIB(lastName, firstName, middleName);
 	}
 
 	@Override
@@ -26,8 +26,8 @@ public class TeacherService implements ITeacherService {
 	}
 
 	@Override
-	public void updateByPIB(TeacherDbi teacherDbi) {
-		teacherRepository.updateByPIB(teacherDbi.getLastName(), teacherDbi.getFirstName(), teacherDbi.getMiddleName(),
+	public void updateAllByPIB(TeacherDbi teacherDbi) {
+		teacherRepository.updateAllByPIB(teacherDbi.getLastName(), teacherDbi.getFirstName(), teacherDbi.getMiddleName(),
 				teacherDbi.getAcademicStatus(), teacherDbi.getDepartment(), teacherDbi.getUpdatingTime());
 	}
 

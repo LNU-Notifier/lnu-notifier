@@ -12,7 +12,6 @@ public class TeacherMapper {
 		teacherDbi.setFirstName(teacher.getFirstName());
 		teacherDbi.setMiddleName(teacher.getMiddleName());
 		teacherDbi.setAcademicStatus(teacher.getAcademicStatus());
-		teacherDbi.setDepartment(teacher.getDepartment());
 		return teacherDbi;
 	}
 
@@ -22,7 +21,6 @@ public class TeacherMapper {
 		teacher.setFirstName(teacherDbi.getFirstName());
 		teacher.setMiddleName(teacherDbi.getMiddleName());
 		teacher.setAcademicStatus(teacherDbi.getAcademicStatus());
-		teacher.setDepartment(teacherDbi.getDepartment());
 		return teacher;
 	}
 

@@ -17,7 +17,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public List<UserDbi> findByUsername(String username) {
-		return userRepository.findByUsername(username);
+		return userRepository.findAllByUsername(username);
 	}
 
 	@Override
@@ -26,8 +26,8 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public void updateByUsername(UserDbi userDbi) {
-		userRepository.updateByUsername(userDbi.getUsername(), userDbi.getPassword(), userDbi.getEmail(),
+	public void updateAllByUsername(UserDbi userDbi) {
+		userRepository.updateAllByUsername(userDbi.getUsername(), userDbi.getPassword(), userDbi.getEmail(),
 				userDbi.getUpdatingTime());
 	}
 
