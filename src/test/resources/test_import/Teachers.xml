@@ -459,7 +459,7 @@
         <lastName>Павлик</lastName>
         <firstName>Богдан</firstName>
         <middleName>Васильович</middleName>
-        <academicStatus>завідувач</academicStatus>
+        <academicStatus>професор</academicStatus>
         <department>сенсорної та напівпровідникової електроніки</department>
     </ns2:Teacher>
     <ns2:Teacher>
@@ -529,7 +529,7 @@
         <lastName>Бордун</lastName>
         <firstName>Олег</firstName>
         <middleName>Михайлович</middleName>
-        <academicStatus>завідувач</academicStatus>
+        <academicStatus>професор</academicStatus>
         <department>фізичної та біомедичної електроніки</department>
     </ns2:Teacher>
     <ns2:Teacher>
