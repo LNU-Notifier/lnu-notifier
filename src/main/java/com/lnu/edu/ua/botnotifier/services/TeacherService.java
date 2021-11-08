@@ -27,8 +27,9 @@ public class TeacherService implements ITeacherService {
 
 	@Override
 	public void updateAllByPIB(TeacherDbi teacherDbi) {
-		teacherRepository.updateAllByPIB(teacherDbi.getLastName(), teacherDbi.getFirstName(), teacherDbi.getMiddleName(),
-				teacherDbi.getAcademicStatus(), teacherDbi.getDepartment(), teacherDbi.getUpdatingTime());
+		teacherRepository.updateAllByPIB(teacherDbi.getLastName(), teacherDbi.getFirstName(),
+				teacherDbi.getMiddleName(), teacherDbi.getAcademicStatus(), teacherDbi.getDepartment(),
+				teacherDbi.getUpdatingTime());
 	}
 
 	// -------------------------------------WIRING-------------------------------------

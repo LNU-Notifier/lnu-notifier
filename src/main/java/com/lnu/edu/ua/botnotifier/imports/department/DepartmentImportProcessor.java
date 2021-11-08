@@ -2,25 +2,18 @@ package com.lnu.edu.ua.botnotifier.imports.department;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 
 import com.lnu.edu.ua.botnotifier.api.entities.DepartmentDbi;
-import com.lnu.edu.ua.botnotifier.api.entities.TeacherDbi;
 import com.lnu.edu.ua.botnotifier.api.imports.department.IDepartmentImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.department.IDepartmentImportWriter;
-import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportWriter;
 import com.lnu.edu.ua.botnotifier.api.mappers.DepartmentMapper;
-import com.lnu.edu.ua.botnotifier.api.mappers.TeacherMapper;
-import com.lnu.edu.ua.botnotifier.api.services.IDepartmentService;
-import com.lnu.edu.ua.botnotifier.imports.teacher.TeacherImportProcessor;
 
 import generated.imports.dataobjects.Department;
 import generated.imports.dataobjects.Departments;
-import generated.imports.dataobjects.Teacher;
 
 public class DepartmentImportProcessor implements IDepartmentImportProcessor {
 
@@ -39,7 +32,7 @@ public class DepartmentImportProcessor implements IDepartmentImportProcessor {
 				DepartmentDbi departmentDbi = createDepartmentDbi(department);
 				departmentImportWriter.write(departmentDbi);
 			} catch (Exception e) {
-				LOGGER.error(String.format("Exception at execute import of data object %s: ", department.toString()),
+				LOGGER.error(String.format("Exception at execute import of data object: %s: ", department.toString()),
 						e);
 			}
 		}

@@ -18,4 +18,7 @@
     <ns2:Department>
         <name>фізичної та біомедичної електроніки</name>
     </ns2:Department>
+    <ns2:Department>
+        <name>політології</name>
+    </ns2:Department>
 </ns2:Departments>

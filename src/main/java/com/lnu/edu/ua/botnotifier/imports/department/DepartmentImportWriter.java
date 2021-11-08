@@ -7,10 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Required;
 
 import com.lnu.edu.ua.botnotifier.api.entities.DepartmentDbi;
-import com.lnu.edu.ua.botnotifier.api.entities.TeacherDbi;
 import com.lnu.edu.ua.botnotifier.api.imports.department.IDepartmentImportWriter;
 import com.lnu.edu.ua.botnotifier.api.services.IDepartmentService;
-import com.lnu.edu.ua.botnotifier.imports.teacher.TeacherImportWriter;
 
 public class DepartmentImportWriter implements IDepartmentImportWriter {
 

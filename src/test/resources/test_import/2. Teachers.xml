@@ -609,4 +609,11 @@
         <academicStatus>аспірант</academicStatus>
         <departmentName>фізичної та біомедичної електроніки</departmentName>
     </ns2:Teacher>
+    <ns2:Teacher>
+        <lastName>Була</lastName>
+        <firstName>Світлана</firstName>
+        <middleName>Петрівна</middleName>
+        <academicStatus>доцент</academicStatus>
+        <departmentName>політології</departmentName>
+    </ns2:Teacher>
 </ns2:Teachers>

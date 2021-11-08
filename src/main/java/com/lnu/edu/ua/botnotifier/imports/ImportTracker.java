@@ -7,6 +7,7 @@ import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.lnu.edu.ua.botnotifier.api.constants.FileTypes;
 import com.lnu.edu.ua.botnotifier.api.imports.IImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.IImportTracker;
 
@@ -14,8 +15,7 @@ public class ImportTracker implements IImportTracker {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ImportTracker.class);
 
-	private static final String XML_TYPE = "xml";
-	private static final String[] EXTENSIONS_ARRAY = { XML_TYPE };
+	private static final String[] EXTENSIONS_ARRAY = { FileTypes.XML_TYPE, FileTypes.CSV_TYPE };
 
 	private IImportProcessor importProcessor;
 	private File importDirectory;

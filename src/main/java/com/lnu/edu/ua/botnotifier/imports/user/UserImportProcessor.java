@@ -19,12 +19,21 @@ public class UserImportProcessor implements IUserImportProcessor {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserImportProcessor.class);
 
+	private UserDbi createUserDbi(User user) throws Exception {
+		UserDbi userDbi = UserMapper.mapToDbi(user);
+		userDbi.setUpdatingTime(Timestamp.from(Instant.now()));
+		return userDbi;
+	}
+
 	@Override
 	public void execute(Users users) {
 		for (User user : users.getUser()) {
-			UserDbi userDbi = UserMapper.mapToDbi(user);
-			userDbi.setUpdatingTime(Timestamp.from(Instant.now()));
-			userImportWriter.write(userDbi);
+			try {
+				UserDbi userDbi = createUserDbi(user);
+				userImportWriter.write(userDbi);
+			} catch (Exception e) {
+				LOGGER.error(String.format("Exception at execute import of data object: %s: ", user.toString()), e);
+			}
 		}
 	}
 

@@ -44,7 +44,7 @@ public class TeacherImportProcessor implements ITeacherImportProcessor {
 				TeacherDbi teacherDbi = createTeacherDbi(teacher);
 				teacherImportWriter.write(teacherDbi);
 			} catch (Exception e) {
-				LOGGER.error(String.format("Exception at execute import of data object %s: ", teacher.toString()), e);
+				LOGGER.error(String.format("Exception at execute import of data object: %s: ", teacher.toString()), e);
 			}
 		}
 	}

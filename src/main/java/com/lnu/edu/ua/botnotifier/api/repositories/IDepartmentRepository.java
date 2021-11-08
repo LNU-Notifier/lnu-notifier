@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lnu.edu.ua.botnotifier.api.entities.DepartmentDbi;
-import com.lnu.edu.ua.botnotifier.api.entities.TeacherDbi;
 
 @Transactional
 public interface IDepartmentRepository extends JpaRepository<DepartmentDbi, Integer> {

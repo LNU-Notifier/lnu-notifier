@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lnu.edu.ua.botnotifier.api.entities.DepartmentDbi;
 import com.lnu.edu.ua.botnotifier.api.repositories.IDepartmentRepository;
-import com.lnu.edu.ua.botnotifier.api.repositories.ITeacherRepository;
 import com.lnu.edu.ua.botnotifier.api.services.IDepartmentService;
 
 public class DepartmentService implements IDepartmentService {

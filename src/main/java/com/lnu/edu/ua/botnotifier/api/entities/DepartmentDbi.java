@@ -49,7 +49,5 @@ public class DepartmentDbi {
 	public String toString() {
 		return "DepartmentDbi [id=" + id + ", name=" + name + ", updatingTime=" + updatingTime + "]";
 	}
-	
-	
 
 }

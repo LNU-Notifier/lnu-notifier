@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Required;
 
 import com.lnu.edu.ua.botnotifier.api.imports.IImportRouter;
 import com.lnu.edu.ua.botnotifier.api.imports.department.IDepartmentImportProcessor;
+import com.lnu.edu.ua.botnotifier.api.imports.pair.IPairImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportProcessor;
+import com.lnu.edu.ua.botnotifier.api.imports.timetable.dataObjects.Timetable;
 import com.lnu.edu.ua.botnotifier.api.imports.user.IUserImportProcessor;
 
 import generated.imports.dataobjects.Departments;
@@ -31,9 +33,14 @@ public class ImportRouter implements IImportRouter {
 			} else if (object instanceof Teachers) {
 				LOGGER.info("Data object redirect to: " + teacherImportProcessor.getClass().getSimpleName());
 				teacherImportProcessor.execute((Teachers) object);
+			} else if (object instanceof Timetable) {
+				LOGGER.info("Data object redirect to: " + pairImportProcessor.getClass().getSimpleName());
+				pairImportProcessor.execute((Timetable) object);
 			} else {
 				LOGGER.error("Import processor is not available for this data type: " + object.getClass().getName());
 			}
+		} else {
+			LOGGER.error("Input object to import is null!");
 		}
 	}
 
@@ -58,6 +65,13 @@ public class ImportRouter implements IImportRouter {
 	@Required
 	public void setDepartmentImportProcessor(IDepartmentImportProcessor departmentImportProcessor) {
 		this.departmentImportProcessor = departmentImportProcessor;
+	}
+
+	private IPairImportProcessor pairImportProcessor;
+
+	@Required
+	public void setPairImportProcessor(IPairImportProcessor pairImportProcessor) {
+		this.pairImportProcessor = pairImportProcessor;
 	}
 
 }
