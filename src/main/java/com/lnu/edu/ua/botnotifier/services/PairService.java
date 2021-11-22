@@ -33,6 +33,11 @@ public class PairService implements IPairService {
 				pairDbi.getSubjectType(), pairDbi.getClassroom(), pairDbi.getTeacher(), pairDbi.getUpdatingTime());
 	}
 
+	@Override
+	public List<PairDbi> findAllByGroupCodeAndDayNameAndWeekType(String groupCode, String dayName, String weekType) {
+		return pairRepository.findAllByGroupCodeAndDayNameAndWeekType(groupCode, dayName, weekType);
+	}
+
 	// -------------------------------------WIRING-------------------------------------
 
 	private IPairRepository pairRepository;

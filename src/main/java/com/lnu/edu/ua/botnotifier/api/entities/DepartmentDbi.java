@@ -1,5 +1,9 @@
 package com.lnu.edu.ua.botnotifier.api.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -9,6 +13,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "departments")
 public class DepartmentDbi {
@@ -21,33 +28,5 @@ public class DepartmentDbi {
 	@Column(nullable = false)
 	private Timestamp updatingTime;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public Timestamp getUpdatingTime() {
-		return updatingTime;
-	}
-
-	public void setUpdatingTime(Timestamp updatingTime) {
-		this.updatingTime = updatingTime;
-	}
-
-	@Override
-	public String toString() {
-		return "DepartmentDbi [id=" + id + ", name=" + name + ", updatingTime=" + updatingTime + "]";
-	}
 
 }

@@ -15,4 +15,6 @@ public interface IPairService {
 
 	void updateAllByUniqueGroupIdentifiers(PairDbi pairDbi);
 
+	List<PairDbi> findAllByGroupCodeAndDayNameAndWeekType(String groupCode, String dayName, String weekType);
+
 }

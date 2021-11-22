@@ -1,5 +1,9 @@
 package com.lnu.edu.ua.botnotifier.api.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
@@ -12,6 +16,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "teachers")
 public class TeacherDbi {
@@ -33,67 +40,5 @@ public class TeacherDbi {
 	@Column(nullable = false)
 	private Timestamp updatingTime;
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getMiddleName() {
-		return middleName;
-	}
-
-	public void setMiddleName(String middleName) {
-		this.middleName = middleName;
-	}
-
-	public String getAcademicStatus() {
-		return academicStatus;
-	}
-
-	public void setAcademicStatus(String academicStatus) {
-		this.academicStatus = academicStatus;
-	}
-
-	public Timestamp getUpdatingTime() {
-		return updatingTime;
-	}
-
-	public void setUpdatingTime(Timestamp updatingTime) {
-		this.updatingTime = updatingTime;
-	}
-
-	public DepartmentDbi getDepartment() {
-		return department;
-	}
-
-	public void setDepartment(DepartmentDbi department) {
-		this.department = department;
-	}
-
-	@Override
-	public String toString() {
-		return "TeacherDbi [id=" + id + ", lastName=" + lastName + ", firstName=" + firstName + ", middleName="
-				+ middleName + ", academicStatus=" + academicStatus + ", department=" + department + ", updatingTime="
-				+ updatingTime + "]";
-	}
 
 }
