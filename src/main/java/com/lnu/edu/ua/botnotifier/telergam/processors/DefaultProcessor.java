@@ -1,7 +1,9 @@
 package com.lnu.edu.ua.botnotifier.telergam.processors;
 
+import com.lnu.edu.ua.botnotifier.api.services.IUserService;
 import com.lnu.edu.ua.botnotifier.telergam.handlers.CallBackQueryHandler;
 import com.lnu.edu.ua.botnotifier.telergam.handlers.MessageHandler;
+
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
@@ -27,4 +29,5 @@ public class DefaultProcessor implements Processor {
     public void executeCallBackQuery(CallbackQuery callbackQuery) {
         callBackQueryHandler.choose(callbackQuery);
     }
+    
 }

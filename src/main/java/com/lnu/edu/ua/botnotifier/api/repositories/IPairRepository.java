@@ -24,6 +24,6 @@ public interface IPairRepository extends JpaRepository<PairDbi, Integer> {
 			String weekType, String subjectName, String subjectType, String classroom, TeacherDbi teacher,
 			Timestamp updatingTime);
 
-	@Query(value = "FROM PairDbi WHERE groupCode = ?1 AND dayName = ?2 and weekType in ('Всі', ?3)")
-	List<PairDbi> findAllByGroupCodeAndDayNameAndWeekType(String groupCode, String dayName, String weekType);
+	@Query(value = "FROM PairDbi WHERE groupCode = ?1 AND dayName = ?2 AND weekType in ('Всі', ?3) AND subgroupNumber in ('Всі', ?4)")
+	List<PairDbi> findAllByUserData(String groupCode, String dayName, String weekType, String subgroupNumber);
 }

@@ -1,5 +1,6 @@
 package com.lnu.edu.ua.botnotifier.telergam;
 
+import com.lnu.edu.ua.botnotifier.api.services.IUserService;
 import com.lnu.edu.ua.botnotifier.telergam.processors.Processor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +9,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 @Component
-public class UniversityBot extends TelegramLongPollingBot {
+public class Bot extends TelegramLongPollingBot {
 
     @Value("${telegram.bot.username}")
     private String username;
@@ -36,4 +37,5 @@ public class UniversityBot extends TelegramLongPollingBot {
     public void setProcessor(Processor processor) {
         this.processor = processor;
     }
+    
 }

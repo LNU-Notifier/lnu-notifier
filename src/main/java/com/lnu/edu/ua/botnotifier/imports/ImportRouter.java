@@ -9,25 +9,20 @@ import com.lnu.edu.ua.botnotifier.api.imports.department.IDepartmentImportProces
 import com.lnu.edu.ua.botnotifier.api.imports.pair.IPairImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.timetable.dataObjects.Timetable;
-import com.lnu.edu.ua.botnotifier.api.imports.user.IUserImportProcessor;
 
 import generated.imports.dataobjects.Departments;
 import generated.imports.dataobjects.Teachers;
-import generated.imports.dataobjects.Users;
 
 public class ImportRouter implements IImportRouter {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(ImportRouter.class);
 
-	public static Class[] availableСlasses = { Users.class, Teachers.class, Departments.class };
+	public static Class[] availableСlasses = { Teachers.class, Departments.class };
 
 	@Override
 	public void redirect(Object object) {
 		if (object != null) {
-			if (object instanceof Users) {
-				LOGGER.info("Data object redirect to: " + userImportProcessor.getClass().getSimpleName());
-				userImportProcessor.execute((Users) object);
-			} else if (object instanceof Departments) {
+			if (object instanceof Departments) {
 				LOGGER.info("Data object redirect to: " + departmentImportProcessor.getClass().getSimpleName());
 				departmentImportProcessor.execute((Departments) object);
 			} else if (object instanceof Teachers) {
@@ -45,13 +40,6 @@ public class ImportRouter implements IImportRouter {
 	}
 
 	// -------------------------------------WIRING-------------------------------------
-
-	private IUserImportProcessor userImportProcessor;
-
-	@Required
-	public void setUserImportProcessor(IUserImportProcessor userImportProcessor) {
-		this.userImportProcessor = userImportProcessor;
-	}
 
 	private ITeacherImportProcessor teacherImportProcessor;
 

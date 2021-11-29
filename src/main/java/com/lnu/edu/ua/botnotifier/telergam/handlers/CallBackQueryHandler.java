@@ -1,11 +1,17 @@
 package com.lnu.edu.ua.botnotifier.telergam.handlers;
 
+import com.lnu.edu.ua.botnotifier.api.constants.SubGroupConstants;
+import com.lnu.edu.ua.botnotifier.api.constants.TypeOfWeekConstants;
+import com.lnu.edu.ua.botnotifier.api.constants.WeekdayConstants;
+import com.lnu.edu.ua.botnotifier.api.dataobjects.User;
 import com.lnu.edu.ua.botnotifier.api.entities.PairDbi;
+import com.lnu.edu.ua.botnotifier.api.entities.UserDbi;
+import com.lnu.edu.ua.botnotifier.api.mappers.UserMapper;
 import com.lnu.edu.ua.botnotifier.api.services.IPairService;
-import com.lnu.edu.ua.botnotifier.telergam.cache.Cache;
-import com.lnu.edu.ua.botnotifier.telergam.constants.UserConstants;
-import com.lnu.edu.ua.botnotifier.telergam.domain.BotUser;
+import com.lnu.edu.ua.botnotifier.api.services.IUserService;
+import com.lnu.edu.ua.botnotifier.telergam.messagesender.IMessageSender;
 import com.lnu.edu.ua.botnotifier.telergam.messagesender.MessageSender;
+import com.lnu.edu.ua.botnotifier.utilities.TelegramUserUtils;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,28 +24,23 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKe
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.lnu.edu.ua.botnotifier.telergam.constants.UserConstants.*;
-
 @Component
-public class CallBackQueryHandler implements Handler<CallbackQuery> {
+public class CallBackQueryHandler implements IHandler<CallbackQuery> {
 
     private IPairService pairService;
-    private MessageSender messageSender;
-    private final Cache<BotUser> userCache;
+    private IMessageSender messageSender;
+    
+    private IUserService userService;
+    
 
-    public CallBackQueryHandler(MessageSender messageSender, Cache<BotUser> userCache) {
+    public CallBackQueryHandler(IMessageSender messageSender) {
         this.messageSender = messageSender;
-        this.userCache = userCache;
     }
 
-    private BotUser generateUserCacheFromMessage(CallbackQuery callbackQuery) {
-        BotUser user = new BotUser();
-        user.setUsername(callbackQuery.getMessage().getFrom().getUserName());
-        user.setId(callbackQuery.getMessage().getChatId());
-        user.setFavoriteGroups(new ArrayList<>());
-        user.setSubGroup(FIRST);
-        user.setTypeOfWeek(NUMERATOR);
-        user.setWeekDay(MONDAY);
+    private UserDbi setDefaultUserValues(UserDbi user) {
+        user.setSubGroup(SubGroupConstants.FIRST);
+        user.setTypeOfWeek(TypeOfWeekConstants.NUMERATOR);
+        user.setWeekDay(WeekdayConstants.MONDAY);
         return user;
     }
 
@@ -50,14 +51,16 @@ public class CallBackQueryHandler implements Handler<CallbackQuery> {
 
     @Override
     public void choose(CallbackQuery callbackQuery) {
-        BotUser botUser = userCache.findById(callbackQuery.getMessage().getChatId());
-        if (botUser == null) {
-            botUser = generateUserCacheFromMessage(callbackQuery);
-            userCache.add(botUser);
-        }
-        checkCallbackQueryData(callbackQuery.getData(), botUser);
-        List<PairDbi> pairs = pairService.findAllByGroupCodeAndDayNameAndWeekType("ФЕІ-42", botUser.getWeekDay(),
-                botUser.getTypeOfWeek());
+    	User user = UserMapper.mapFromDbi(userService.findById(callbackQuery.getFrom().getId()));
+    	if(user == null) {
+    		UserDbi userDbi = TelegramUserUtils.mapToDbi(callbackQuery.getFrom());
+    		userDbi = setDefaultUserValues(userDbi);
+    		userService.save(userDbi);
+    		user = UserMapper.mapFromDbi(userDbi);
+    	}
+    	
+    	changeUserData(callbackQuery.getData(), user);
+        List<PairDbi> pairs = pairService.findAllByUserData("ФЕІ-42", user.getWeekDay(), user.getTypeOfWeek(), user.getSubGroup());
 
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
 
@@ -66,17 +69,27 @@ public class CallBackQueryHandler implements Handler<CallbackQuery> {
         List<InlineKeyboardButton> weekTypeButtonsRow2 = new ArrayList<>();
         weekTypeButtonsRow2.add(InlineKeyboardButton.builder()
                 .text("Чисельник")
-                .callbackData(NUMERATOR)
+                .callbackData(TypeOfWeekConstants.NUMERATOR)
                 .build());
         weekTypeButtonsRow2.add(InlineKeyboardButton.builder()
                 .text("Знаменник")
-                .callbackData(DENOMINATOR)
+                .callbackData(TypeOfWeekConstants.DENOMINATOR)
+                .build());
+        List<InlineKeyboardButton> subgroupNumberButtonsRow3 = new ArrayList<>();
+        subgroupNumberButtonsRow3.add(InlineKeyboardButton.builder()
+                .text("Перша підгрупа")
+                .callbackData(SubGroupConstants.FIRST)
+                .build());
+        subgroupNumberButtonsRow3.add(InlineKeyboardButton.builder()
+                .text("Друга підгрупа")
+                .callbackData(SubGroupConstants.SECOND)
                 .build());
         keyboard.add(weekTypeButtonsRow2);
+        keyboard.add(subgroupNumberButtonsRow3);
         inlineKeyboardMarkup.setKeyboard(keyboard);
         messageSender.sendEditMessage(
                 EditMessageText.builder()
-                        .text(generateSchedule(pairs, botUser))
+                        .text(generateSchedule(pairs, user))
                         .parseMode("HTML")
                         .chatId(String.valueOf(callbackQuery.getMessage().getChatId()))
                         .messageId(callbackQuery.getMessage().getMessageId())
@@ -86,70 +99,84 @@ public class CallBackQueryHandler implements Handler<CallbackQuery> {
 
     }
 
-    private void checkCallbackQueryData(String callbackQueryData, BotUser botUser) {
+    private void changeUserData(String callbackQueryData, User user) {
         switch (callbackQueryData) {
-            case MONDAY:
-                botUser.setWeekDay(MONDAY);
+            case WeekdayConstants.MONDAY:
+            	user.setWeekDay(WeekdayConstants.MONDAY);
                 break;
-            case TUESDAY:
-                botUser.setWeekDay(TUESDAY);
+            case WeekdayConstants.TUESDAY:
+            	user.setWeekDay(WeekdayConstants.TUESDAY);
                 break;
-            case WEDNESDAY:
-                botUser.setWeekDay(WEDNESDAY);
+            case WeekdayConstants.WEDNESDAY:
+            	user.setWeekDay(WeekdayConstants.WEDNESDAY);
                 break;
-            case THURSDAY:
-                botUser.setWeekDay(THURSDAY);
+            case WeekdayConstants.THURSDAY:
+            	user.setWeekDay(WeekdayConstants.THURSDAY);
                 break;
-            case FRIDAY:
-                botUser.setWeekDay(FRIDAY);
+            case WeekdayConstants.FRIDAY:
+            	user.setWeekDay(WeekdayConstants.FRIDAY);
                 break;
-            case NUMERATOR:
-                botUser.setTypeOfWeek(NUMERATOR);
+            case TypeOfWeekConstants.NUMERATOR:
+            	user.setTypeOfWeek(TypeOfWeekConstants.NUMERATOR);
                 break;
-            case DENOMINATOR:
-                botUser.setTypeOfWeek(DENOMINATOR);
+            case TypeOfWeekConstants.DENOMINATOR:
+            	user.setTypeOfWeek(TypeOfWeekConstants.DENOMINATOR);
+                break;
+            case SubGroupConstants.FIRST:
+            	user.setSubGroup(SubGroupConstants.FIRST);
+                break;
+            case SubGroupConstants.SECOND:
+            	user.setSubGroup(SubGroupConstants.SECOND);
                 break;
         }
+        userService.save(UserMapper.mapToDbi(user));
     }
 
     private List<InlineKeyboardButton> generateWeekDayButtons() {
         List<InlineKeyboardButton> weekDayButtonsRow1 = new ArrayList<>();
         weekDayButtonsRow1.add(InlineKeyboardButton.builder()
                 .text("Пн")
-                .callbackData(MONDAY)
+                .callbackData(WeekdayConstants.MONDAY)
                 .build());
         weekDayButtonsRow1.add(InlineKeyboardButton.builder()
                 .text("Вт")
-                .callbackData(TUESDAY)
+                .callbackData(WeekdayConstants.TUESDAY)
                 .build());
         weekDayButtonsRow1.add(InlineKeyboardButton.builder()
                 .text("Ср")
-                .callbackData(WEDNESDAY)
+                .callbackData(WeekdayConstants.WEDNESDAY)
                 .build());
         weekDayButtonsRow1.add(InlineKeyboardButton.builder()
                 .text("Чт")
-                .callbackData(THURSDAY)
+                .callbackData(WeekdayConstants.THURSDAY)
                 .build());
         weekDayButtonsRow1.add(InlineKeyboardButton.builder()
                 .text("Пт")
-                .callbackData(FRIDAY)
+                .callbackData(WeekdayConstants.FRIDAY)
                 .build());
         return weekDayButtonsRow1;
     }
 
-    private String generateSchedule(List<PairDbi> pairs, BotUser botUser) {
+    private String generateSchedule(List<PairDbi> pairs, User user) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Розклад групи: ФеІ-42\n").append("Тиждень: ").append(botUser.getTypeOfWeek())
-                .append("\nВибрана підгрупа: Загальна\n");
+        sb.append("Розклад групи: ФеІ-42")
+        .append("\nТиждень: ").append(user.getTypeOfWeek())
+        .append("\nДень: ").append(user.getWeekDay())
+        .append("\nВибрана підгрупа: ").append(user.getSubGroup()).append("\n");
         for (PairDbi pair : pairs) {
             sb.append("\n<b>Номер: </b>").append(pair.getPairNumber()).append(" ")
                     .append(pair.getSubjectName())
                     .append("\n<b>Викладач: </b>").append(pair.getTeacher().getLastName())
                     .append("\n<b>Аудиторія: </b>").append(pair.getClassroom())
-                    .append("\n<b>Вид пари: </b>").append(pair.getSubjectType())
-                    .append("\n<b>Час: </b>").append(pair.getUpdatingTime()).append("\n")
+                    .append("\n<b>Вид пари: </b>").append(pair.getSubjectType()).append("\n")
                     .append(StringUtils.repeat(EmojiParser.parseToUnicode(":heavy_minus_sign:"),7));
         }
         return sb.toString();
     }
+
+    @Autowired
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
+    
 }

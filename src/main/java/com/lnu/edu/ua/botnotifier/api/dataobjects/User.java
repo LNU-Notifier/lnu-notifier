@@ -1,15 +1,8 @@
-package com.lnu.edu.ua.botnotifier.api.entities;
+package com.lnu.edu.ua.botnotifier.api.dataobjects;
 
-import java.sql.Timestamp;
-
-import javax.persistence.*;
-
-@Entity
-@Table(name = "users")
-public class UserDbi {
-
-	@Id
-    private long id;
+public class User {
+	
+	private long id;
     private String userName;
     private String firstName;
     private String lastName;
@@ -19,7 +12,7 @@ public class UserDbi {
     private String weekDay;
     
     
-    public UserDbi() {
+    public User() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -89,9 +82,9 @@ public class UserDbi {
 
 	@Override
 	public String toString() {
-		return "UserDbi [id=" + id + ", userName=" + userName + ", firstName=" + firstName + ", lastName=" + lastName
+		return "User [id=" + id + ", userName=" + userName + ", firstName=" + firstName + ", lastName=" + lastName
 				+ ", groupCode=" + groupCode + ", subGroup=" + subGroup + ", typeOfWeek=" + typeOfWeek + ", weekDay="
 				+ weekDay + "]";
 	}
-
+    
 }

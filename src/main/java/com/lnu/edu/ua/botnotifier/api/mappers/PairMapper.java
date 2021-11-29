@@ -6,6 +6,9 @@ import com.lnu.edu.ua.botnotifier.api.imports.timetable.dataObjects.Pair;
 public class PairMapper {
 
 	public static PairDbi mapToDbi(Pair pair) {
+		if(pair == null) {
+			return null;
+		}
 		PairDbi pairDbi = new PairDbi();
 		pairDbi.setGroupCode(pair.getGroupCode());
 		pairDbi.setDayName(pair.getDayName());
@@ -19,6 +22,9 @@ public class PairMapper {
 	}
 
 	public static Pair mapFromDbi(PairDbi pairDbi) {
+		if(pairDbi == null) {
+			return null;
+		}
 		Pair pair = new Pair();
 		pair.setGroupCode(pairDbi.getGroupCode());
 		pair.setDayName(pairDbi.getDayName());

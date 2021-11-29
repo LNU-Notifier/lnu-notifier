@@ -34,8 +34,8 @@ public class PairService implements IPairService {
 	}
 
 	@Override
-	public List<PairDbi> findAllByGroupCodeAndDayNameAndWeekType(String groupCode, String dayName, String weekType) {
-		return pairRepository.findAllByGroupCodeAndDayNameAndWeekType(groupCode, dayName, weekType);
+	public List<PairDbi> findAllByUserData(String groupCode, String dayName, String weekType, String subgroupNumber) {
+		return pairRepository.findAllByUserData(groupCode, dayName, weekType, subgroupNumber);
 	}
 
 	// -------------------------------------WIRING-------------------------------------

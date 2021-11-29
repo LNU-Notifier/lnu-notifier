@@ -1,7 +1,5 @@
 package com.lnu.edu.ua.botnotifier.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lnu.edu.ua.botnotifier.api.entities.UserDbi;
@@ -11,24 +9,13 @@ import com.lnu.edu.ua.botnotifier.api.services.IUserService;
 public class UserService implements IUserService {
 
 	@Override
-	public UserDbi findById(Integer id) {
+	public UserDbi findById(long id) {
 		return userRepository.findById(id).orElse(null);
-	}
-
-	@Override
-	public List<UserDbi> findByUsername(String username) {
-		return userRepository.findAllByUsername(username);
 	}
 
 	@Override
 	public UserDbi save(UserDbi userDbi) {
 		return userRepository.save(userDbi);
-	}
-
-	@Override
-	public void updateAllByUsername(UserDbi userDbi) {
-		userRepository.updateAllByUsername(userDbi.getUsername(), userDbi.getPassword(), userDbi.getEmail(),
-				userDbi.getUpdatingTime());
 	}
 
 	// -------------------------------------WIRING-------------------------------------

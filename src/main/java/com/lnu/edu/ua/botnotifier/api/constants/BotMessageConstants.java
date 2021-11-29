@@ -1,4 +1,4 @@
-package com.lnu.edu.ua.botnotifier.telergam.constants;
+package com.lnu.edu.ua.botnotifier.api.constants;
 
 import com.vdurmont.emoji.EmojiParser;
 

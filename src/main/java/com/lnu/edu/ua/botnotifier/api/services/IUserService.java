@@ -1,17 +1,11 @@
 package com.lnu.edu.ua.botnotifier.api.services;
 
-import java.util.List;
-
 import com.lnu.edu.ua.botnotifier.api.entities.UserDbi;
 
 public interface IUserService {
 
-	UserDbi findById(Integer id);
-
-	List<UserDbi> findByUsername(String username);
+	UserDbi findById(long id);
 
 	UserDbi save(UserDbi userDbi);
-
-	void updateAllByUsername(UserDbi userDbi);
 
 }

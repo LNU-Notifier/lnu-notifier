@@ -1,9 +1,17 @@
 package com.lnu.edu.ua.botnotifier.telergam.handlers;
 
-import com.lnu.edu.ua.botnotifier.telergam.cache.Cache;
-import com.lnu.edu.ua.botnotifier.telergam.constants.BotMessageConstants;
-import com.lnu.edu.ua.botnotifier.telergam.domain.BotUser;
-import com.lnu.edu.ua.botnotifier.telergam.messagesender.MessageSender;
+import com.lnu.edu.ua.botnotifier.api.constants.BotMessageConstants;
+import com.lnu.edu.ua.botnotifier.api.constants.SubGroupConstants;
+import com.lnu.edu.ua.botnotifier.api.constants.TypeOfWeekConstants;
+import com.lnu.edu.ua.botnotifier.api.constants.WeekdayConstants;
+import com.lnu.edu.ua.botnotifier.api.dataobjects.User;
+import com.lnu.edu.ua.botnotifier.api.entities.UserDbi;
+import com.lnu.edu.ua.botnotifier.api.mappers.UserMapper;
+import com.lnu.edu.ua.botnotifier.api.services.IUserService;
+import com.lnu.edu.ua.botnotifier.telergam.messagesender.IMessageSender;
+import com.lnu.edu.ua.botnotifier.utilities.TelegramUserUtils;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -12,25 +20,38 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
-import static com.lnu.edu.ua.botnotifier.telergam.constants.UserConstants.*;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 @Component
-public class MessageHandler implements Handler<Message> {
+public class MessageHandler implements IHandler<Message> {
 
-    private final MessageSender messageSender;
-    private final Cache<BotUser> cache;
+    private final IMessageSender messageSender;
+    
+    private IUserService userService;
+    
 
-    public MessageHandler(MessageSender messageSender, Cache<BotUser> cache) {
+    public MessageHandler(IMessageSender messageSender) {
         this.messageSender = messageSender;
-        this.cache = cache;
+    }
+    
+    private UserDbi setDefaultUserValues(UserDbi user) {
+        user.setSubGroup(SubGroupConstants.FIRST);
+        user.setTypeOfWeek(TypeOfWeekConstants.NUMERATOR);
+        user.setWeekDay(WeekdayConstants.MONDAY);
+        return user;
     }
 
     @Override
     public void choose(Message message) {
+    	User user = UserMapper.mapFromDbi(userService.findById(message.getFrom().getId()));
+    	if(user == null) {
+    		UserDbi userDbi = TelegramUserUtils.mapToDbi(message.getFrom());
+    		userDbi = setDefaultUserValues(userDbi);
+    		userService.save(userDbi);
+    		user = UserMapper.mapFromDbi(userDbi);
+    	}
         if(message.hasText()) {
             SendMessage sendMessage = new SendMessage();
             if (message.getText().equals("/start")) {
@@ -61,7 +82,7 @@ public class MessageHandler implements Handler<Message> {
                         Collections.singletonList(
                                 InlineKeyboardButton.builder()
                                         .text("ФЕІ-42")
-                                        .callbackData(MONDAY)
+                                        .callbackData(WeekdayConstants.MONDAY)
                                         .build()));
                 inlineKeyboardMarkup.setKeyboard(keyboard);
                 sendMessage.setReplyMarkup(inlineKeyboardMarkup);
@@ -69,4 +90,9 @@ public class MessageHandler implements Handler<Message> {
             }
         }
     }
+    
+    @Autowired
+	public void setUserService(IUserService userService) {
+		this.userService = userService;
+	}
 }

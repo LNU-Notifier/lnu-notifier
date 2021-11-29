@@ -9,8 +9,6 @@ import com.lnu.edu.ua.botnotifier.api.imports.pair.IPairImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.pair.IPairImportWriter;
 import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportProcessor;
 import com.lnu.edu.ua.botnotifier.api.imports.teacher.ITeacherImportWriter;
-import com.lnu.edu.ua.botnotifier.api.imports.user.IUserImportProcessor;
-import com.lnu.edu.ua.botnotifier.api.imports.user.IUserImportWriter;
 import com.lnu.edu.ua.botnotifier.api.services.IDepartmentService;
 import com.lnu.edu.ua.botnotifier.api.services.IPairService;
 import com.lnu.edu.ua.botnotifier.api.services.ITeacherService;
@@ -24,8 +22,6 @@ import com.lnu.edu.ua.botnotifier.imports.pair.PairImportProcessor;
 import com.lnu.edu.ua.botnotifier.imports.pair.PairImportWriter;
 import com.lnu.edu.ua.botnotifier.imports.teacher.TeacherImportProcessor;
 import com.lnu.edu.ua.botnotifier.imports.teacher.TeacherImportWriter;
-import com.lnu.edu.ua.botnotifier.imports.user.UserImportProcessor;
-import com.lnu.edu.ua.botnotifier.imports.user.UserImportWriter;
 import com.lnu.edu.ua.botnotifier.services.DepartmentService;
 import com.lnu.edu.ua.botnotifier.services.PairService;
 import com.lnu.edu.ua.botnotifier.services.TeacherService;
@@ -55,13 +51,6 @@ public class AppConfig {
 	}
 
 	@Bean
-	public IUserImportWriter userImportWriter() {
-		UserImportWriter userImportWriter = new UserImportWriter();
-		userImportWriter.setUserService(userService());
-		return userImportWriter;
-	}
-
-	@Bean
 	public IDepartmentImportWriter departmentImportWriter() {
 		DepartmentImportWriter departmentImportWriter = new DepartmentImportWriter();
 		departmentImportWriter.setDepartmentService(departmentService());
@@ -80,13 +69,6 @@ public class AppConfig {
 		PairImportWriter pairImportWriter = new PairImportWriter();
 		pairImportWriter.setPairService(pairService());
 		return pairImportWriter;
-	}
-
-	@Bean
-	public IUserImportProcessor userImportProcessor() {
-		UserImportProcessor userImportProcessor = new UserImportProcessor();
-		userImportProcessor.setUserImportWriter(userImportWriter());
-		return userImportProcessor;
 	}
 
 	@Bean
@@ -115,7 +97,6 @@ public class AppConfig {
 	@Bean
 	public ImportRouter importRouter() {
 		ImportRouter importRouter = new ImportRouter();
-		importRouter.setUserImportProcessor(userImportProcessor());
 		importRouter.setDepartmentImportProcessor(departmentImportProcessor());
 		importRouter.setTeacherImportProcessor(teacherImportProcessor());
 		importRouter.setPairImportProcessor(pairImportProcessor());
